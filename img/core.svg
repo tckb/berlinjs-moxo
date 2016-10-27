@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with EazyDraw for Mac ( http://www.eazydraw.com/ ) -->
+
+<svg
+    version="1.1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    width="316.10546875"
+    height="390.551171875"
+    viewBox="0, 0, 316.10546875, 390.551171875"
+    preserveAspectRatio="none"
+    id="svg2">
+   <defs
+       id="defs_406806A5"/>
+   <metadata
+       id="metadata7">
+      <rdf:RDF>
+         <cc:Work
+             rdf:about="">
+            <dc:format>image/svg+xml</dc:format>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:title></dc:title>
+         </cc:Work>
+      </rdf:RDF>
+   </metadata>
+   <g
+       id="layer_Paper"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;fill-rule:nonzero;stroke-linecap:square;stroke-linejoin:miter;stroke-width:1;stroke-miterlimit:10">
+      <circle
+          style="fill:#D0D0D0;stroke:#C04800;stroke-width:2"
+          id="0F2E5D75"
+          cx="176.765625"
+          cy="196.848046875"
+          r="45.298828125"/>
+      <text
+          id="6865E085"
+          style="stroke:none"
+          font-family="Helvetica"
+          font-size="12"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="206.706054688" y="215.418359375">Moxtra</tspan>
+      </text>
+      <circle
+          style="fill:#EBFFED;stroke:#EBFFED;stroke-width:1.25"
+          id="3F2E5D75"
+          cx="261.665625"
+          cy="45.923828125"
+          r="45.298828125"/>
+      <text
+          id="E1847585"
+          style="stroke:none"
+          font-family="Helvetica"
+          font-size="12"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="297.269140625" y="64.494140625">Chat</tspan>
+      </text>
+      <circle
+          style="fill:#EBFFED;stroke:#EBFFED;stroke-width:1.25"
+          id="5F2E5D75"
+          cx="85.128125"
+          cy="342.737890625"
+          r="45.298828125"/>
+      <text
+          id="8CDFD585"
+          style="stroke:none"
+          font-family="Helvetica"
+          font-size="12"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="123.06953125" y="361.308203125">Clip</tspan>
+      </text>
+      <circle
+          style="fill:#EBFFED;stroke:#EBFFED;stroke-width:1.25"
+          id="8F2E5D75"
+          cx="45.923828125"
+          cy="57.178125"
+          r="45.298828125"/>
+      <text
+          id="9223F485"
+          style="fill:#202020;stroke:none"
+          font-family="Helvetica"
+          font-size="12"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="80.8623046875" y="75.7484375">Meet</tspan>
+      </text>
+      <circle
+          style="fill:#EBFFED;stroke:#EBFFED;stroke-width:1.25"
+          id="AF2E5D75"
+          cx="270.181640625"
+          cy="344.62734375"
+          r="45.298828125"/>
+      <text
+          id="70314685"
+          style="stroke:none"
+          font-family="Helvetica"
+          font-size="12"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="304.458007812" y="363.19765625">Draw</tspan>
+      </text>
+      <path
+          style="fill:none;stroke:#707070;stroke-dasharray:4,4"
+          id="CF2E5D75"
+          d="M66.0535093037,106.135344572 C68.2336010748,141.94392152 93.771369767,171.693050102 128.238259549,178.574802899"/>
+      <path
+          style="fill:none;stroke:#707070;stroke-dasharray:4,4"
+          id="DF2E5D75"
+          d="M131.782306507,211.638571986 C98.8725461272,224.297795041 78.3903675096,257.993081176 81.9079742124,293.686967756"/>
+      <path
+          style="fill:none;stroke:#707070;stroke-dasharray:4,4"
+          id="EF2E5D75"
+          d="M271.506082181,297.754424496 C275.322003893,262.073012844 255.121775253,228.308522624 222.318301213,215.53751601"/>
+      <path
+          style="fill:none;stroke:#707070;stroke-dasharray:4,4"
+          id="FF2E5D75"
+          d="M224.572457171,183.703954753 C256.135771583,167.853401868 273.332473497,132.299703568 266.446617221,97.1303047301"/>
+   </g>
+</svg>

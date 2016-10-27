@@ -1,0 +1,166 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Intro to Moxtra SDK @ berlinJS </title>
+        <meta name="description" content="A quick pro introduction to Moxtra SDK">
+        <meta name="author" content="tckb < chandra.tungathurthi@rwth-aachen.de > ">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="reveal-moxo.css">
+        <style type="text/css">
+            body{
+                background-color: #2B2B2B;
+            }
+            #meet-status{
+                color: #A4B4CA;
+                text-shadow: 0px 2px 3px #000;
+                text-align: center;
+            }
+        }
+    </style>
+    <!-- Include Moxtra JavaScript Library -->
+    <script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="hVrBZJNbOP0"></script>
+
+    <!-- Include External JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
+    <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+
+    <!-- Create Signature -->
+            <script type="text/javascript">// <![CDATA[
+                var client_id = "hVrBZJNbOP0";
+                var client_secret = "n7e6pgBzFZ4";
+                var timestamp = new Date().getTime();
+                var unique_id = "BerlinJS-Demo-1"; //Unique ID of how user is identified in your system
+                
+                var hash = CryptoJS.HmacSHA256(client_id + unique_id + timestamp, client_secret);
+                var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+                var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+                // ]]>
+            </script>
+            
+            <!-- Initialize user and get access token -->
+            <script type="text/javascript">
+                function get_token(type) {
+                    var init_options = {
+                        uniqueid: unique_id,
+                        firstname: "BerlinJS",
+                        lastname: "Demo",
+                        timestamp: timestamp,
+                        signature: signature,
+                        get_accesstoken: function(result) {
+                            console.log("access_token: " + result.access_token + " expires in: " + result.expires_in);
+                            if(type == "meet")
+                                start_meet(result.access_token);
+                            if(type == "chat")
+                                start_chat(result.access_token);
+
+                        },
+                        error: function(result) {
+                            console.log("error code: " + result.error_code + " message: " + result.error_message);
+                        }
+                    };
+                    Moxtra.setup(init_options);
+                }
+            </script>
+
+            <!-- Start Meet Function using access_token -->
+            <script type="text/javascript">
+                function start_meet(access_token) {
+                    // empty the contents first
+                    document.getElementById("mox-container").innerHTML = "";
+                    var meet_options = {
+                    iframe: true, //To open the meet in the same window within an iFrame.
+                    // tab: true, //To open the meet in a new browser tab, N/A if iframe option is set to true.
+                    tagid4iframe: "mox-container",
+                    iframewidth: "1250px",
+                    iframeheight: "450px",
+                    extension: { 
+                        "show_dialogs": { "meet_invite": true } 
+                    },
+                    access_token: access_token,
+                    start_meet: function(event) {
+                        document.getElementById("meet-status").innerHTML = "Meet Started - session_id: "+event.session_id+" session_key: "+event.session_key;
+                        //Your application server can upload files to meet using the session_id and session_key
+                    },
+                    error: function(event) {
+                       document.getElementById("meet-status").innerHTML = "Cannot start meet: error code: " + event.error_code + " message: " + event.error_message;
+                   },
+                   end_meet: function(event) {
+                    document.getElementById("meet-status").innerHTML = "Meet Ended";
+                }
+            };
+            Moxtra.meet(meet_options);
+        }
+
+        <!-- Start Chat Function -->
+
+        function start_chat (access_token) {    
+          // empty the contents first
+                    document.getElementById("mox-container").innerHTML = "";        
+            var chat_options = {
+                    //unique id of the users who will be part of the chat. These users should already exist in Moxtra.
+                    unique_id: "BerlinJS-Demo-1",  
+                    iframe: true,
+                    tagid4iframe: "mox-container",
+                    iframewidth: "1250px",
+                    iframeheight: "450px",              
+                    access_token: access_token,
+                    autostart_meet: true,
+                    autostart_note: true,
+                    extension: { "show_dialogs": { "member_invite": true } },
+                    start_chat: function(event) {
+                        document.getElementById("meet-status").innerHTML = "Chat started binder ID: " + event.binder_id;
+                        //Your application server can upload files to draw using the binder_id and access_token
+                    },
+                    start_meet: function(event) {
+                         document.getElementById("meet-status").innerHTML = "Meet started session key: " + event.session_key + " session id: " + event.session_id;
+                    },
+                    end_meet: function(event) {
+                         document.getElementById("meet-status").innerHTML = "Meet end event";
+                    },
+                    invite_member: function(event) {
+                        document.getElementById("meet-status").innerHTML = "Invite member into binder Id: " + event.binder_id ;
+                    },
+                    request_note: function(event) {
+                        document.getElementById("meet-status").innerHTML = "Note start request";
+                    },
+                    error: function(event) {
+                        document.getElementById("meet-status").innerHTML = "Chat error code: " + event.error_code + " error message: " + event.error_message ;
+                    }
+                };      
+                Moxtra.chat(chat_options);
+            }
+            function join_meet(){
+                                    document.getElementById("mox-container").innerHTML = "";        
+
+                 var meet_id = prompt("Please enter the meet id", "Join a meet");
+                        document.getElementById("mox-container").innerHTML =  "<iframe src='https://www.moxtra.com/"+meet_id+"' width='1250px' height='480px'></iframe>";
+
+
+            }
+        </script>      
+
+    </script>
+
+</head>
+<body>
+
+    <span>
+    &nbsp; &nbsp; <button onclick='javascript:get_token("meet");'>&nbsp; Start Meet &nbsp;</button> 
+                &nbsp; &nbsp; <button onclick='javascript:join_meet("chat");'>&nbsp; Join Meet &nbsp;</button> 
+        &nbsp; &nbsp; <button onclick='javascript:get_token("chat");'>&nbsp; Start Chat &nbsp;</button> 
+
+
+
+    </span>
+    <hr/>
+    <div id="mox-container">
+        <center> <h4 style="color:gray; font-family: Verdana;"> Click the button to initiate the chat/meet </h4></center> 
+    </div>
+    <hr/>
+    <div id="meet-status"></div>
+</body>
+</html>

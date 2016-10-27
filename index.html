@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moxtra SDK @ berlinJS </title>
+  <meta name="description" content="A quick pro introduction to Moxtra SDK">
+  <meta name="author" content="tckb < chandra.tungathurthi@rwth-aachen.de > ">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+  <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+  <link rel="stylesheet" href="reveal-moxo.css">
+<style type="text/css">
+  body{
+    /* Adjust the background*/
+    background-image: url('img/moxtra-logo.png'), url('img/moxo-logo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0.5% 1%, 110% 120%;  
+    background-size: 350px auto, 500px auto;
+
+    /* Smooth text */
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-align: left;
+    margin: auto;
+  }
+  /* Define font family for custom fonts */
+@font-face {
+    font-family: genteltouch;
+    src: url(font/gentletouch/gentletouch.ttf);
+}
+@font-face {
+    font-family: akadora;
+    src: url(font/akadora/akaDora.ttf);
+}
+</style>
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+
+function openStartMeet(){
+var strWindowFeatures = "menubar=0,location=0,resizable=1,scrollbars=1,status=0";
+window.open("startMeet.html","Moxtra Meet Demo",strWindowFeatures);
+window.focus();
+}
+
+
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  
+  <div class="reveal">
+    <div class="slides">
+     <section> 
+      <h3 class="title">Bring Real Time Collaboration for your apps</h3>
+      <h3 class="title">Using Moxtra</h3>
+      <br />
+      <br/>
+      <p>Chandra Tungathurthi /  <a href="http://tckb.me">@tckb</a></p>
+      <p><a href="https://developer.moxtra.com">Developer Evangelist</a></p>
+      <p><a href="https://moxtra.com">Moxtra</a></p>
+    </section>
+    <section>
+      <h2> Few words about the company ... </h2>
+      <br/>
+      <br/>
+      <p>
+        Moxtra was founded in 2012 by <strong> Subrah Iyar and Stanley Huang</strong>. Both are seasoned veterans of the collaboration industry with decades of experience at both and Subrah was the co-founder and CEO of <strong>WebEx</strong> Communications and led the company from its inception to its sale to Cisco Systems in 2007 for $3.2 billion. Stanley was a Senior Director of Engineering at both WebEx and Cisco. 
+      </p>
+    </section>
+    <section>
+    <aside class="notes">
+        Test speaker notes
+    </aside>
+      <h2>Moxtra SDK ... </h2>
+      <ul>
+        <li class="fragment"> is a messaging platform which enables powerful <strong> communication and collaboration</strong> technology for your mobile and web apps.
+        </li>
+        <li class="fragment"> allows <strong>any mobile / web apps</strong> to bring this technologies around app and content integrating Moxtra platform capabilities.
+        </li>
+        <li class="fragment"> allows apps users to engage with each other via chat voice call, screen sharing, voice & visual clips, documents and more! </li>
+        <li class="fragment"> is a mobile first <strong>Contextual Communication and Collaboration</strong> cloud platform.</li>  
+      </ul>
+    </section>
+    <section>
+      <section> but, what does that mean for a Developer?? </section> 
+      <section>imagine...</section>
+      <section>
+        <h3> Rich messaging platform</h3>
+        <span class="fragment fade-in">
+          <img src="img/wa-logo.png" style="width: 10% ; border:0" />
+        </span>&nbsp;
+        <span class="fragment fade-in"> 
+          <img src="img/viber-logo.png" style="width: 10% ; border:0" />
+        </span>&nbsp;
+        <span class="fragment fade-in"> 
+          <img src="img/facetime-logo.png" style="width: 10% ; border:0" />
+        </span>&nbsp;
+        <span class="fragment fade-in">
+         <h2>&bull;&bull;&bull;</h2>
+       </span>
+     </section>
+     <section> in context with your app... </section>
+     <section><strong> with an overdrive! </strong>  </section>
+   </section>
+   <section>
+    <section>
+      <h2> Core concepts / Modules </h2>
+    </section>
+    <section>
+    <aside class="notes">
+      Moxtra Meet SDK Module : Screen Share / App Share / VoIP / In Meet Chat Recording <br/>
+      Moxtra Chat SDK ModuleText Chat: Voice Chat / Add files / Add/Invite Members / Start Meet from Chat/ Create to-do <br/>
+      Moxtra Clip SDK ModuleCreate clip with app screenCreate clip on files (Upload documents & images)Download Clip as MoviePreview ClipShare Clip<br/>
+      Moxtra Draw SDK Module: Annotate on files / Download the annotated file as PDF / Share annotated file
+    </aside>
+      <p>
+        <img src="img/core_1.png" style="width: 50%; border: 0" />
+      </p>
+    </section>
+  </section>
+  <section>
+      <section>
+    <blockquote>
+      Talk is cheap. Show me the code 
+      <cite>Linus Torvalds</cite>
+    </blockquote>
+  </section>
+  <section> let's get started! </section>
+  </section>
+  <section>
+     <section>
+     // 1. Setup your identity <br/><br/>
+    <pre><code>
+<!-- Required libs     -->
+<script src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="mox_app-client-id"></script>
+<!-- Required JavaScript libraries to create the signature for unique ID based authentication -->
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+<script type="text/javascript">
+//  Moxtra app specifics
+    var client_id = "mox_app-client-id";
+    var client_secret = "mox_app-secret";
+  // User indentification in your app
+    var uniqueid = "app_user_id";
+    var timestamp = new Date().getTime();
+    var hash = CryptoJS.HmacSHA256(client_id + uniqueid + timestamp, client_secret);
+    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+    var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+</script>
+    </code></pre>
+</section>
+<section>
+// 2. Request a access token <br/><br/>
+<pre>
+<code data-trim>
+  function get_token() {
+    var in_options = {
+        uniqueid: "app_user_id",
+        timestamp: timestamp,
+        signature: signature,
+        get_accesstoken: function(result) {
+            alert("access_token: " + result.access_token + " expires in: " + result.expires_in);
+        },
+        error: function(result) {
+            alert("error code: " + result.error_code + " message: " + result.error_message);
+        }
+    };
+    Moxtra.setup(in_options);
+}
+    </code></pre>
+
+</section> 
+
+  </section>
+  <section>
+  // 3. You're all done, start the meet! <br/><br/>
+<pre>
+<code class="javascript">
+function startMeet() {
+    var options = {
+        iframe: true,
+        extension: { "show_dialogs": { "meet_invite": true } },
+        tagid4iframe: "container",
+        iframewidth: "1000px",
+        iframeheight: "750px",
+        access_token: token.value,
+        error: function(event) {
+            alert("error code: " + event.error_code + " message: " + event.error_message);
+        }      
+    };
+
+    Moxtra.meet(options);
+}
+</code>
+</pre>
+<a id="demo-link" href="http://tckb.me/berlinjs/startMeet.html" style="font-size: 18px; position: absolute; left:80%" data-preview-link>&nbsp; Try the demo! &nbsp;</a>
+ </section>
+
+<section>
+  Great! What next ?
+</section>
+<section>
+        <h3> Pick your favorite</h3>
+<span >
+          <img src="img/android.png" style="width: 15% ; border:0" />
+        </span>&nbsp;
+        <span> 
+          <img src="img/ios.png" style="width: 15% ; border:0" />
+        </span>&nbsp;
+        <span > 
+          <img src="img/js.png" style="width: 10% ; border:0" />
+        </span>&nbsp;
+        <span> 
+          <img src="img/rest.png" style="width: 10% ; border:0" />
+        </span>&nbsp;
+</section>
+<section>
+<h2> First steps... </h2>
+      <p style="color: #C5473B">Signup +  Register your app.</p>
+  Developers portal @ <a href="https://developer.moxtra.com/" data-preview-link> https://developer.moxtra.com/</a>
+  <br/>  <br/>
+
+  <ul>
+    <li>
+      Step-by-step guide
+    </li>
+    <li>
+    Tons of sample to get you started!
+    </li>
+    <li>
+      Get featured, get famous! ;) 
+    </li>
+  </ul>
+</section>
+<section>
+  <p style="font-family: akadora; font-size: 100px"> That's all folks!</p>
+  <br/>
+ <p style="font-size: 18px; color: #C5473B">(Check out more demos backstage)</p>
+</section>
+ <section>
+ </section>
+  </section>
+</section>
+
+</div>
+
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.min.js"></script>
+<script src="js/avgrund.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    embedded: false,
+    mouseWheel: false,
+    hideAddressBar: true,
+    previewLinks: false,
+    fragments: true,
+    touch: true,
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [{
+        src: 'reveal.js/lib/js/classList.js',
+        condition: function () {
+          return !document.body.classList;  
+        }
+      }, {
+        src: 'reveal.js/plugin/markdown/marked.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }, {
+        src: 'reveal.js/plugin/markdown/markdown.js',
+        condition: function () {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }, {
+        src: 'reveal.js/plugin/highlight/highlight.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }, {
+        src: 'reveal.js/plugin/zoom-js/zoom.js',
+        async: true,
+        condition: function () {
+          return !!document.body.classList;
+        }
+      }, {
+        src: 'reveal.js/plugin/notes/notes.js',
+        async: true,
+        condition: function () {
+          return !!document.body.classList;
+        }
+      }]
+    });
+</script>
+<div class="footer" style="font-family: Gill Sans, Verdana;  position: absolute; bottom: 6px; left: 40%;  margin-left: -140px; z-index: 20; color: #A4B4CA;text-shadow: 0px 2px 3px #000;">
+  <h9> Developing collaborative apps using Moxtra &bull; Chandra Tungathurthi  &bull;  <a href="http://berlinjs.org" style="color: red;">@berlinjs</a></h9>
+</div>
+</body>
+</html>
